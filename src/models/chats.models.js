@@ -1,7 +1,8 @@
-const { DataTypes } = require("sequelize");
 const {DataTypes} = require("sequelize");
 
 const db = require("../utils/database");
+
+const Users = require("./users.models");
 
 
 
@@ -24,7 +25,8 @@ const Chats = db.define("chats", {
   },
   link: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    defaultValue: false
   },
   description: {
     type: DataTypes.STRING,
@@ -32,12 +34,22 @@ const Chats = db.define("chats", {
   },
   members: {
     type: DataTypes.INTEGER,
-    autoIncrement: true
+    autoIncrement: true,
+    defaultValue: false
   },
   channel: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false
+  },
+  userId: {
+    type: DataTypes.UUID,
+    allowNull: false,
+    field: "user_id",
+    references: {
+      key: "id",
+      model: Users
+    }
   }
 
 });
