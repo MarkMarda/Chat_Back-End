@@ -18,11 +18,11 @@ app.use(express.json());
 
 db.authenticate()
   .then(() => {console.log("Database Authenticated")})
-  .catch(() => {console.log(err)});
+  .catch((err) => {console.log(err)});
 
 db.sync()
   .then(() => {console.log("Database Synced")})
-  .catch(() => {console.log(err)});
+  .catch((err) => {console.log(err)});
 
 initModels();
 

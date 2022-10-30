@@ -37,7 +37,7 @@ const Messages = db.define("messages", {
     }
   },
   chatId: {
-    type: DataTypes.STRING,
+    type: DataTypes.UUID,
     allowNull: false,
     field: "chat_id",
     references: {
